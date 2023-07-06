@@ -1,0 +1,10 @@
+<div>
+    <p>
+        followers: {{user?.followers!.length}}
+        Following: {{user?.following!.length}}
+    </p>
+</div>
+<div *ngIf="canFollow">
+    <button *ngIf="!isFollowing" (click)="onFollow()">Follow</button>
+    <button *ngIf="isFollowing" (click)="onUnfollow()">Unfollow</button>
+</div>

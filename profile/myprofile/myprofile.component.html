@@ -1,0 +1,17 @@
+<div *ngIf="isLoading">
+<app-page-spinner></app-page-spinner>
+</div>
+<div *ngIf="!isLoading" id="container">
+    <app-profile-picture [user]="user" [isOwner]="isOwner" [userId]="userId" [imageUrl]="imageUrl"/>
+    <app-follow [user]="user"/>
+    <div id="right-inner">
+        <app-field [user]="user" [isOwner]="isOwner" [fieldName]="'username'"/>
+        <app-field [user]="user" [isOwner]="isOwner" [fieldName]="'email'"/>
+        <app-field [user]="user" [isOwner]="isOwner" [fieldName]="'firstName'"/>
+        <app-field [user]="user" [isOwner]="isOwner" [fieldName]="'lastName'"/>
+        <app-field [user]="user" [isOwner]="isOwner" [fieldName]="'age'"/>
+        <app-password [user]="user"/>
+    </div>
+
+    <div style="clear: both;"></div>
+</div>

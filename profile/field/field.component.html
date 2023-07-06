@@ -1,0 +1,17 @@
+<div class="line">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <ng-container *ngIf="!isLoading">
+        <span *ngIf="errorMsg">{{errorMsg}}</span>
+        <ng-container *ngIf="!isChanging">
+            <p>{{fieldName | capitalizeAndSpaceWords}}: {{user?.[fieldName]}}</p>
+            <a *ngIf="isOwner" (click)="isChanging=true" class="update-link">Update</a>
+        </ng-container>
+        <ng-container *ngIf="isChanging">
+            <input (keyup.enter)="isInvalid() || onSave(fieldName)" type="text" placeholder="{{ fieldName | capitalizeAndSpaceWords }}" [ngModel]="user?.[fieldName]"
+            (ngModelChange)="updated = $event" [ngClass]="{ 'error': isInvalid() }">
+            <div *ngIf="isInvalid()" class="error-msg">{{ getErrorMessage() }}</div>
+            <button (click)="isChanging=false">Cancel</button>
+            <button *ngIf="!isInvalid()" (click)="onSave(fieldName)">Save</button>
+        </ng-container>
+    </ng-container>
+</div>

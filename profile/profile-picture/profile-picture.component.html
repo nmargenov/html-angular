@@ -1,0 +1,16 @@
+<div id="left-inner">
+    <ng-container *ngIf="!isChanging">
+        <span *ngIf="errorMsg">{{errorMsg}}</span>
+        <div class="photoDiv">
+            <img [src]="imageUrl" alt="Profile Photo" (error)="onImageError()" (load)="onImageLoad()">
+            <app-spinner *ngIf="isLoadingImage"></app-spinner>
+        </div>
+        <ng-container *ngIf="isOwner && !isLoadingImage">
+            <input type="file" id="file-input" (change)="onFileSelected($event)" />
+            <label class="button" for="file-input">Upload Image</label>
+            <span class="selected-file">{{ selectedFile?.name || 'No file selected' }}</span>
+            <button *ngIf="selectedFile" (click)="onUpdateProfilePicture()">Save</button>
+        </ng-container>
+    </ng-container>
+    <app-spinner *ngIf="isChanging"/>
+</div>
