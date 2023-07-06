@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="create-post">
+        <app-create-post ></app-create-post>
+    </div>
+    <div class="chooseFeed">
+        <app-state (feedChange)="onFeedChange($event)"></app-state>
+    </div>
+    <main>
+        <app-following *ngIf="feed=='following'"></app-following>
+        <app-explore *ngIf="feed=='explore'"></app-explore>
+    </main>
+</div>

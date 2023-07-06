@@ -1,0 +1,11 @@
+.line {
+  display: flex;
+  align-items: center;
+}
+
+p, input {
+  padding: 15px;
+  border-style: solid;
+  width: auto;
+  margin-bottom: 10px;
+}

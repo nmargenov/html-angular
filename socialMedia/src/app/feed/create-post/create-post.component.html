@@ -1,0 +1,16 @@
+<div class="container">
+  <a routerLink="/user/64a5c3c703d0c5a79bc91600">click me</a>
+  <div class="post-content">
+    <textarea placeholder="What's happening?" maxlength="255"></textarea>
+  </div>
+  <div class="post-actions">
+    <div class="upload-image">
+      <input type="file" id="file-input" (change)="onFileSelected($event)" />
+      <label for="file-input">Upload Image</label>
+    </div>
+    <span class="selected-file">{{ selectedFile?.name || 'No file selected' }}</span>
+    <div class="button">
+      <button>Post</button>
+    </div>
+  </div>
+</div>
